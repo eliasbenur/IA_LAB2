@@ -193,6 +193,21 @@ Comparison functions are:
 (slot ID (default-dynamic (gensym*)))
 ~~~~
 
+### Instancia
+~~~~
+(instances) # Ver instancias
+
+(make-instance [Dorky] of DUCK) # Insertar una instances
+
+(make-instance Dixie_Duck of DUCK
+ (sound quack) (age 2))
+
+(unmake-instance *) # Elimina todas las instancias
+
+(unmake-instance [Dorky]) # Elimina una instancia
+
+~~~~
+
 
 
 

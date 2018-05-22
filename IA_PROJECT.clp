@@ -177,6 +177,17 @@
 (definstances MAIN::instancias
    (El_Cliente of Cliente
    )
+   ([BCN] of Ciudad (nombre "Barcelona"))
+   ([INS] of Ciudad (nombre "Instanbul"))
+   ([ROM] of Ciudad (nombre "Roma"))
+   ([LON] of Ciudad (nombre "Londres"))
+   ([BEI] of Ciudad (nombre "Beijing"))
+)
+
+(defmessage-handler Cliente print primary ()
+   (printout t "El Cliente: " crlf)
+   (printout t "Edad: " ?self:edad crlf)
+   (printout t "Objetivo: " ?self:Objetivo crlf)
 )
 
 (defrule MAIN::welcome
@@ -190,10 +201,43 @@
    (printout t "Empezemos! Porfavor introduze tu edad: ")
    (bind ?edad (read))
    (send ?cliente put-edad ?edad)
+   (printout t "Que principal objetivo tiene con este viaje? " crlf)
+   (printout t "{Descanso, Cultural, Diversion, Romantico}:")
+   (bind ?objetivo (read))
+   (send ?cliente put-Objetivo ?objetivo)
+   (assert (objetivo ?objetivo))
 )
 
-(defmessage-handler Cliente print primary ()
-   (printout t "--" ?self:edad "--" crlf)
+(defrule MAIN::if_romantico
+   ?inst <- (objetivo Romantico)
+   =>
+   (make-instance El_Viaje of Viaje 
+      (incluye [BCN] [ROM] [LON]))
+   (retract ?inst)
+)
+
+(defrule MAIN::if_descanso
+   ?inst <- (objetivo Descanso)
+   =>
+   (make-instance El_Viaje of Viaje 
+      (incluye [BEI]))
+   (retract ?inst)
+)
+
+(defrule MAIN::if_diversion
+   ?inst <- (objetivo Diversion)
+   =>
+   (make-instance El_Viaje of Viaje 
+      (incluye [BCN] [LON]))
+   (retract ?inst)
+)
+
+(defrule MAIN::if_cultural
+   ?inst <- (objetivo Cultural)
+   =>
+   (make-instance El_Viaje of Viaje 
+      (incluye [ROM] [LON] [BEI]))
+   (retract ?inst)
 )
 
 

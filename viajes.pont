@@ -1,0 +1,288 @@
+; Tue May 22 14:22:51 CEST 2018
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
+
+(defclass %3ACLIPS_TOP_LEVEL_SLOT_CLASS "Fake class to save top-level slot information"
+	(is-a USER)
+	(role abstract)
+	(single-slot pais
+;+		(comment "Pais de la Ciudad")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot origen
+		(type INSTANCE)
+;+		(allowed-classes Ciudad)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Objetivo
+;+		(comment "Objetivo del viaje")
+		(type SYMBOL)
+		(allowed-values Descanso Cultural Diversion Romantico)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Data_inicio
+;+		(comment "Data inicio del viaje\nej: 04-11-1994")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_max_dias
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tiene
+		(type INSTANCE)
+;+		(allowed-classes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot puedes_visitar
+;+		(comment "Los sitios interesantes que dispone una ciudad")
+		(type INSTANCE)
+;+		(allowed-classes Sitios_Interesantes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot solicita
+		(type INSTANCE)
+;+		(allowed-classes Viaje)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_max_diasxciudad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo_de_acompanyantes
+		(type SYMBOL)
+		(allowed-values Mixto Familia Amigos Pareja)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Data_final
+;+		(comment "Data final del viaje\nej: 04-11-1994")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Presupuesto_max
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_max_ciudades
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot transporte
+		(type SYMBOL)
+		(allowed-values Ship Car Train Plane)
+		(create-accessor read-write))
+	(single-slot viaje_especial
+;+		(comment "Evento especial : Boda, Fin de curso, etc...")
+		(type SYMBOL)
+		(allowed-values Boda Fin_de_curso)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_min_dias
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot longitud
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot viaja_con_ninyos
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cultura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot latitud
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_acompanyantes
+;+		(comment "Numero de acompañantes")
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot incluye
+;+		(comment "Las ciudades por las que se ira en el viaje")
+		(type INSTANCE)
+;+		(allowed-classes Ciudad)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot dispone_de
+		(type INSTANCE)
+;+		(allowed-classes Alojamiento)
+		(create-accessor read-write))
+	(multislot restricciones_transporte
+		(type SYMBOL)
+		(allowed-values Tren Avion Autobus Coche Barco)
+		(create-accessor read-write))
+	(single-slot num_min_diasxciudad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot edad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot continente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_min_ciudades
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Viaje
+	(is-a USER)
+	(role concrete)
+	(multislot incluye
+;+		(comment "Las ciudades por las que se ira en el viaje")
+		(type INSTANCE)
+;+		(allowed-classes Ciudad)
+		(create-accessor read-write))
+	(single-slot origen
+		(type INSTANCE)
+;+		(allowed-classes Ciudad)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Data_final
+;+		(comment "Data final del viaje\nej: 04-11-1994")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Data_inicio
+;+		(comment "Data inicio del viaje\nej: 04-11-1994")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Presupuesto_max
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_max_dias
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_max_ciudades
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot restricciones_transporte
+		(type SYMBOL)
+		(allowed-values Tren Avion Autobus Coche Barco)
+		(create-accessor read-write))
+	(single-slot num_min_diasxciudad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_min_ciudades
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_max_diasxciudad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_min_dias
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
+
+(defclass Ciudad
+	(is-a USER)
+	(role concrete)
+	(single-slot longitud
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot puedes_visitar
+;+		(comment "Los sitios interesantes que dispone una ciudad")
+		(type INSTANCE)
+;+		(allowed-classes Sitios_Interesantes)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot cultura
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot pais
+;+		(comment "Pais de la Ciudad")
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot transporte
+		(type SYMBOL)
+		(allowed-values Ship Car Train Plane)
+		(create-accessor read-write))
+	(single-slot latitud
+		(type FLOAT)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot nombre
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot continente
+		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(multislot dispone_de
+		(type INSTANCE)
+;+		(allowed-classes Alojamiento)
+		(create-accessor read-write)))
+
+(defclass Alojamiento
+	(is-a USER)
+	(role concrete))
+
+(defclass Sitios_Interesantes
+	(is-a USER)
+	(role concrete))
+
+(defclass Cliente
+	(is-a USER)
+	(role concrete)
+	(single-slot viaja_con_ninyos
+		(type SYMBOL)
+		(allowed-values FALSE TRUE)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot num_acompanyantes
+;+		(comment "Numero de acompañantes")
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot solicita
+		(type INSTANCE)
+;+		(allowed-classes Viaje)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot Objetivo
+;+		(comment "Objetivo del viaje")
+		(type SYMBOL)
+		(allowed-values Descanso Cultural Diversion Romantico)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot tipo_de_acompanyantes
+		(type SYMBOL)
+		(allowed-values Mixto Familia Amigos Pareja)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot viaje_especial
+;+		(comment "Evento especial : Boda, Fin de curso, etc...")
+		(type SYMBOL)
+		(allowed-values Boda Fin_de_curso)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot edad
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))

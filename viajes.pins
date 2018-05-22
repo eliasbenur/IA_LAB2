@@ -1,0 +1,256 @@
+; Tue May 22 14:22:51 CEST 2018
+; 
+;+ (version "3.5")
+;+ (build "Build 663")
+
+(definstances MAIN::instancias
+
+([IA_Lab2_Class10000] of  Cliente
+
+	(edad 23)
+	(num_acompanyantes 1)
+	(Objetivo Romantico)
+	(tipo_de_acompanyantes Pareja)
+	(viaje_especial Boda))
+
+([IA_Lab2_Class20000] of  Ciudad
+
+	(latitud 41.40032)
+	(longitud 2.161205)
+	(nombre "Barcelona")
+	(pais "Espanya")
+	(transporte Ship Train))
+
+([IA_Lab2_Class20001] of  Ciudad
+
+	(latitud 13.739767)
+	(longitud 100.53943)
+	(nombre "Bangkok")
+	(pais "Tailandia")
+	(transporte Ship))
+
+([IA_Lab2_Class20002] of  Ciudad
+
+	(latitud 51.51057)
+	(longitud -0.127629)
+	(nombre "Londres")
+	(pais "Reino Unido")
+	(transporte Train))
+
+([IA_Lab2_Class20003] of  Ciudad
+
+	(latitud 48.856182)
+	(longitud 2.342918)
+	(nombre "Paris")
+	(pais "Francia")
+	(transporte Car Train Plane))
+
+([IA_Lab2_Class20004] of  Ciudad
+
+	(latitud 25.089222)
+	(longitud 55.213875)
+	(nombre "Dubai")
+	(pais "Emiratos Arabes")
+	(transporte Ship Car Plane))
+
+([IA_Lab2_Class20005] of  Ciudad
+
+	(latitud 35.71317)
+	(longitud 139.72586)
+	(nombre "Tokio")
+	(pais "Japon")
+	(transporte Car Train))
+
+([IA_Lab2_Class20006] of  Ciudad
+
+	(latitud 37.551674)
+	(longitud 126.99296)
+	(nombre "Seul")
+	(pais "Corea del Sur")
+	(transporte Ship Train))
+
+([IA_Lab2_Class20007] of  Ciudad
+
+	(latitud 40.698006)
+	(longitud -73.9224)
+	(nombre "Nueva York")
+	(pais "USA")
+	(transporte Car Train))
+
+([IA_Lab2_Class20008] of  Ciudad
+
+	(latitud 3.149816)
+	(longitud 101.67154)
+	(nombre "Kuala Lumpur")
+	(pais "Malasia")
+	(transporte Ship Train Plane))
+
+([IA_Lab2_Class20009] of  Ciudad
+
+	(latitud 41.02542)
+	(longitud 28.912054)
+	(nombre "Estambul")
+	(pais "Turquia")
+	(transporte Car Plane))
+
+([IA_Lab2_Class20010] of  Ciudad
+
+	(latitud 52.367363)
+	(longitud 4.891078)
+	(nombre "Amsterdam")
+	(pais "Holanda")
+	(transporte Ship Train))
+
+([IA_Lab2_Class20011] of  Ciudad
+
+	(latitud 45.468426)
+	(longitud 9.182532)
+	(nombre "Milan")
+	(pais "Italia")
+	(transporte Ship Train))
+
+([IA_Lab2_Class20012] of  Ciudad
+
+	(latitud 34.66795)
+	(longitud 135.496)
+	(nombre "Osaka")
+	(pais "Japon")
+	(transporte Ship Train Plane))
+
+([IA_Lab2_Class20013] of  Ciudad
+
+	(latitud 25.030317)
+	(longitud 121.48234)
+	(nombre "Taipei")
+	(pais "Taiwan")
+	(transporte Train))
+
+([IA_Lab2_Class20014] of  Ciudad
+
+	(latitud 41.89316)
+	(longitud 12.490764)
+	(nombre "Roma")
+	(pais "Italia")
+	(transporte Train Plane))
+
+([IA_Lab2_Class20015] of  Ciudad
+
+	(latitud 31.104025)
+	(longitud 121.57506)
+	(nombre "Shanghai")
+	(pais "China")
+	(transporte Train))
+
+([IA_Lab2_Class20016] of  Ciudad
+
+	(latitud 48.21001)
+	(longitud 16.368809)
+	(nombre "Viena")
+	(pais "Austria")
+	(transporte Ship Plane))
+
+([IA_Lab2_Class20017] of  Ciudad
+
+	(latitud 50.066883)
+	(longitud 14.45294)
+	(nombre "Praga")
+	(pais "Republica Checa")
+	(transporte Ship Car Train Plane))
+
+([IA_Lab2_Class20018] of  Ciudad
+
+	(latitud 25.774092)
+	(longitud -80.21272)
+	(nombre "Miami")
+	(pais "USA")
+	(transporte Car Train Plane))
+
+([IA_Lab2_Class20019] of  Ciudad
+
+	(latitud 34.133907)
+	(longitud -118.444725)
+	(nombre "Los Angeles")
+	(pais "USA")
+	(transporte Train Plane))
+
+([IA_Lab2_Class20020] of  Ciudad
+
+	(latitud 13.054846)
+	(longitud 80.22754)
+	(nombre "Chennai")
+	(pais "India")
+	(transporte Car Train Plane))
+
+([IA_Lab2_Class20021] of  Ciudad
+
+	(latitud 53.346954)
+	(longitud -6.297912)
+	(nombre "Dublin")
+	(pais "Irlanda")
+	(transporte Car Train Plane))
+
+([IA_Lab2_Class20022] of  Ciudad
+
+	(latitud 40.42343)
+	(longitud -3.703963)
+	(nombre "Madrid")
+	(pais "Espanya")
+	(transporte Ship Car Plane))
+
+([IA_Lab2_Class20023] of  Ciudad
+
+	(latitud 48.149075)
+	(longitud 11.522584)
+	(nombre "Munich")
+	(pais "Alemania")
+	(transporte Ship Car))
+
+([IA_Lab2_Class20024] of  Ciudad
+
+	(latitud 19.114094)
+	(longitud 72.87236)
+	(nombre "Bombai")
+	(pais "India")
+	(transporte Train))
+
+([IA_Lab2_Class20025] of  Ciudad
+
+	(latitud 43.675144)
+	(longitud -79.42971)
+	(nombre "Toronto")
+	(pais "Canada")
+	(transporte Car))
+
+([IA_Lab2_Class20026] of  Ciudad
+
+	(latitud 52.493816)
+	(longitud 13.364216)
+	(nombre "Berlin")
+	(pais "Alemania")
+	(transporte Ship Car Plane))
+
+([IA_Lab2_Class20027] of  Ciudad
+
+	(latitud -26.200415)
+	(longitud 28.02079)
+	(nombre "Johannesburgo")
+	(pais "Sudafrica")
+	(transporte Ship Train))
+
+([IA_Lab2_Class20031] of  Ciudad
+
+	(latitud 39.47204)
+	(longitud -0.378534)
+	(nombre "Valencia")
+	(pais "Espanya")
+	(transporte Car Train))
+
+([IA_Lab2_Class20032] of  Ciudad
+
+	(latitud 47.387863)
+	(longitud 0.689967)
+	(nombre "Tours")
+	(pais "Francia")
+	(transporte Ship Plane))
+
+)
