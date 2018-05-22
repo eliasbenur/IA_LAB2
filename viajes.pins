@@ -1,9 +1,10 @@
-; Tue May 22 14:22:51 CEST 2018
+; Tue May 22 22:11:06 CEST 2018
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
 
 (definstances MAIN::instancias
+
 
 ([IA_Lab2_Class10000] of  Cliente
 
@@ -15,6 +16,10 @@
 
 ([IA_Lab2_Class20000] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30011]
+		[IA_Lab2_Class30012]
+		[IA_Lab2_Class30013])
 	(latitud 41.40032)
 	(longitud 2.161205)
 	(nombre "Barcelona")
@@ -23,6 +28,9 @@
 
 ([IA_Lab2_Class20001] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30008]
+		[IA_Lab2_Class30010])
 	(latitud 13.739767)
 	(longitud 100.53943)
 	(nombre "Bangkok")
@@ -31,6 +39,10 @@
 
 ([IA_Lab2_Class20002] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30036]
+		[IA_Lab2_Class30037]
+		[IA_Lab2_Class30038])
 	(latitud 51.51057)
 	(longitud -0.127629)
 	(nombre "Londres")
@@ -39,6 +51,10 @@
 
 ([IA_Lab2_Class20003] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30060]
+		[IA_Lab2_Class30061]
+		[IA_Lab2_Class30062])
 	(latitud 48.856182)
 	(longitud 2.342918)
 	(nombre "Paris")
@@ -47,6 +63,10 @@
 
 ([IA_Lab2_Class20004] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30022]
+		[IA_Lab2_Class30023]
+		[IA_Lab2_Class30024])
 	(latitud 25.089222)
 	(longitud 55.213875)
 	(nombre "Dubai")
@@ -55,6 +75,10 @@
 
 ([IA_Lab2_Class20005] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30076]
+		[IA_Lab2_Class30077]
+		[IA_Lab2_Class30078])
 	(latitud 35.71317)
 	(longitud 139.72586)
 	(nombre "Tokio")
@@ -63,6 +87,9 @@
 
 ([IA_Lab2_Class20006] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30069]
+		[IA_Lab2_Class30070])
 	(latitud 37.551674)
 	(longitud 126.99296)
 	(nombre "Seul")
@@ -71,6 +98,10 @@
 
 ([IA_Lab2_Class20007] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30054]
+		[IA_Lab2_Class30055]
+		[IA_Lab2_Class30056])
 	(latitud 40.698006)
 	(longitud -73.9224)
 	(nombre "Nueva York")
@@ -79,6 +110,10 @@
 
 ([IA_Lab2_Class20008] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30033]
+		[IA_Lab2_Class30034]
+		[IA_Lab2_Class30035])
 	(latitud 3.149816)
 	(longitud 101.67154)
 	(nombre "Kuala Lumpur")
@@ -87,6 +122,10 @@
 
 ([IA_Lab2_Class20009] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30028]
+		[IA_Lab2_Class30029]
+		[IA_Lab2_Class30030])
 	(latitud 41.02542)
 	(longitud 28.912054)
 	(nombre "Estambul")
@@ -95,6 +134,10 @@
 
 ([IA_Lab2_Class20010] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30005]
+		[IA_Lab2_Class30006]
+		[IA_Lab2_Class30007])
 	(latitud 52.367363)
 	(longitud 4.891078)
 	(nombre "Amsterdam")
@@ -103,6 +146,10 @@
 
 ([IA_Lab2_Class20011] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30048]
+		[IA_Lab2_Class30049]
+		[IA_Lab2_Class30050])
 	(latitud 45.468426)
 	(longitud 9.182532)
 	(nombre "Milan")
@@ -111,6 +158,10 @@
 
 ([IA_Lab2_Class20012] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30057]
+		[IA_Lab2_Class30058]
+		[IA_Lab2_Class30059])
 	(latitud 34.66795)
 	(longitud 135.496)
 	(nombre "Osaka")
@@ -119,6 +170,9 @@
 
 ([IA_Lab2_Class20013] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30074]
+		[IA_Lab2_Class30075])
 	(latitud 25.030317)
 	(longitud 121.48234)
 	(nombre "Taipei")
@@ -127,6 +181,10 @@
 
 ([IA_Lab2_Class20014] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30066]
+		[IA_Lab2_Class30067]
+		[IA_Lab2_Class30068])
 	(latitud 41.89316)
 	(longitud 12.490764)
 	(nombre "Roma")
@@ -135,6 +193,10 @@
 
 ([IA_Lab2_Class20015] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30071]
+		[IA_Lab2_Class30072]
+		[IA_Lab2_Class30073])
 	(latitud 31.104025)
 	(longitud 121.57506)
 	(nombre "Shanghai")
@@ -143,6 +205,10 @@
 
 ([IA_Lab2_Class20016] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30087]
+		[IA_Lab2_Class30088]
+		[IA_Lab2_Class30089])
 	(latitud 48.21001)
 	(longitud 16.368809)
 	(nombre "Viena")
@@ -151,6 +217,10 @@
 
 ([IA_Lab2_Class20017] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30063]
+		[IA_Lab2_Class30064]
+		[IA_Lab2_Class30065])
 	(latitud 50.066883)
 	(longitud 14.45294)
 	(nombre "Praga")
@@ -159,6 +229,10 @@
 
 ([IA_Lab2_Class20018] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30045]
+		[IA_Lab2_Class30046]
+		[IA_Lab2_Class30047])
 	(latitud 25.774092)
 	(longitud -80.21272)
 	(nombre "Miami")
@@ -167,6 +241,10 @@
 
 ([IA_Lab2_Class20019] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30039]
+		[IA_Lab2_Class30040]
+		[IA_Lab2_Class30041])
 	(latitud 34.133907)
 	(longitud -118.444725)
 	(nombre "Los Angeles")
@@ -175,6 +253,10 @@
 
 ([IA_Lab2_Class20020] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30019]
+		[IA_Lab2_Class30020]
+		[IA_Lab2_Class30021])
 	(latitud 13.054846)
 	(longitud 80.22754)
 	(nombre "Chennai")
@@ -183,6 +265,10 @@
 
 ([IA_Lab2_Class20021] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30025]
+		[IA_Lab2_Class30026]
+		[IA_Lab2_Class30027])
 	(latitud 53.346954)
 	(longitud -6.297912)
 	(nombre "Dublin")
@@ -191,6 +277,10 @@
 
 ([IA_Lab2_Class20022] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30042]
+		[IA_Lab2_Class30043]
+		[IA_Lab2_Class30044])
 	(latitud 40.42343)
 	(longitud -3.703963)
 	(nombre "Madrid")
@@ -199,6 +289,10 @@
 
 ([IA_Lab2_Class20023] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30051]
+		[IA_Lab2_Class30052]
+		[IA_Lab2_Class30053])
 	(latitud 48.149075)
 	(longitud 11.522584)
 	(nombre "Munich")
@@ -207,6 +301,10 @@
 
 ([IA_Lab2_Class20024] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30016]
+		[IA_Lab2_Class30017]
+		[IA_Lab2_Class30018])
 	(latitud 19.114094)
 	(longitud 72.87236)
 	(nombre "Bombai")
@@ -215,6 +313,9 @@
 
 ([IA_Lab2_Class20025] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30079]
+		[IA_Lab2_Class30080])
 	(latitud 43.675144)
 	(longitud -79.42971)
 	(nombre "Toronto")
@@ -223,6 +324,9 @@
 
 ([IA_Lab2_Class20026] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30014]
+		[IA_Lab2_Class30015])
 	(latitud 52.493816)
 	(longitud 13.364216)
 	(nombre "Berlin")
@@ -231,6 +335,9 @@
 
 ([IA_Lab2_Class20027] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30031]
+		[IA_Lab2_Class30032])
 	(latitud -26.200415)
 	(longitud 28.02079)
 	(nombre "Johannesburgo")
@@ -239,6 +346,10 @@
 
 ([IA_Lab2_Class20031] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30084]
+		[IA_Lab2_Class30085]
+		[IA_Lab2_Class30086])
 	(latitud 39.47204)
 	(longitud -0.378534)
 	(nombre "Valencia")
@@ -247,10 +358,518 @@
 
 ([IA_Lab2_Class20032] of  Ciudad
 
+	(dispone_de
+		[IA_Lab2_Class30081]
+		[IA_Lab2_Class30082]
+		[IA_Lab2_Class30083])
 	(latitud 47.387863)
 	(longitud 0.689967)
 	(nombre "Tours")
 	(pais "Francia")
 	(transporte Ship Plane))
+
+([IA_Lab2_Class30005] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20010])
+	(price 52)
+	(star 3))
+
+([IA_Lab2_Class30006] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20010])
+	(price 120)
+	(star 5))
+
+([IA_Lab2_Class30007] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20010])
+	(price 42)
+	(star 2))
+
+([IA_Lab2_Class30008] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20001])
+	(price 70)
+	(star 3))
+
+([IA_Lab2_Class30010] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20001])
+	(price 74)
+	(star 4))
+
+([IA_Lab2_Class30011] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20000])
+	(price 180)
+	(star 5))
+
+([IA_Lab2_Class30012] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20000])
+	(price 120)
+	(star 4))
+
+([IA_Lab2_Class30013] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20000])
+	(price 60)
+	(star 3))
+
+([IA_Lab2_Class30014] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20026])
+	(price 47)
+	(star 2))
+
+([IA_Lab2_Class30015] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20026])
+	(price 80)
+	(star 3))
+
+([IA_Lab2_Class30016] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20024])
+	(price 39)
+	(star 2))
+
+([IA_Lab2_Class30017] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20024])
+	(price 131)
+	(star 4))
+
+([IA_Lab2_Class30018] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20024])
+	(price 147)
+	(star 4))
+
+([IA_Lab2_Class30019] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20020])
+	(price 120)
+	(star 4))
+
+([IA_Lab2_Class30020] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20020])
+	(price 80)
+	(star 3))
+
+([IA_Lab2_Class30021] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20020])
+	(price 43)
+	(star 2))
+
+([IA_Lab2_Class30022] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20004])
+	(price 60)
+	(star 3))
+
+([IA_Lab2_Class30023] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20004])
+	(price 180)
+	(star 5))
+
+([IA_Lab2_Class30024] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20004])
+	(price 130)
+	(star 4))
+
+([IA_Lab2_Class30025] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20021])
+	(price 79)
+	(star 3))
+
+([IA_Lab2_Class30026] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20021])
+	(price 120)
+	(star 4))
+
+([IA_Lab2_Class30027] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20021])
+	(price 95)
+	(star 4))
+
+([IA_Lab2_Class30028] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20009])
+	(price 35)
+	(star 2))
+
+([IA_Lab2_Class30029] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20009])
+	(price 120)
+	(star 4))
+
+([IA_Lab2_Class30030] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20009])
+	(price 110)
+	(star 3))
+
+([IA_Lab2_Class30031] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20027])
+	(price 64)
+	(star 3))
+
+([IA_Lab2_Class30032] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20027])
+	(price 89)
+	(star 4))
+
+([IA_Lab2_Class30033] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20008])
+	(price 140)
+	(star 4))
+
+([IA_Lab2_Class30034] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20008])
+	(price 78)
+	(star 3))
+
+([IA_Lab2_Class30035] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20008])
+	(price 46)
+	(star 3))
+
+([IA_Lab2_Class30036] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20002])
+	(price 78)
+	(star 3))
+
+([IA_Lab2_Class30037] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20002])
+	(price 121)
+	(star 3))
+
+([IA_Lab2_Class30038] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20002])
+	(price 160)
+	(star 4))
+
+([IA_Lab2_Class30039] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20019])
+	(price 150)
+	(star 5))
+
+([IA_Lab2_Class30040] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20019])
+	(price 109)
+	(star 4))
+
+([IA_Lab2_Class30041] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20019])
+	(price 99)
+	(star 4))
+
+([IA_Lab2_Class30042] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20022])
+	(price 46)
+	(star 2))
+
+([IA_Lab2_Class30043] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20022])
+	(price 75)
+	(star 3))
+
+([IA_Lab2_Class30044] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20022])
+	(price 55)
+	(star 3))
+
+([IA_Lab2_Class30045] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20018])
+	(price 170)
+	(star 5))
+
+([IA_Lab2_Class30046] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20018])
+	(price 120)
+	(star 3))
+
+([IA_Lab2_Class30047] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20018])
+	(price 39)
+	(star 2))
+
+([IA_Lab2_Class30048] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20011])
+	(price 49)
+	(star 3))
+
+([IA_Lab2_Class30049] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20011])
+	(price 72)
+	(star 3))
+
+([IA_Lab2_Class30050] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20011])
+	(price 98)
+	(star 3))
+
+([IA_Lab2_Class30051] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20023])
+	(price 145)
+	(star 3))
+
+([IA_Lab2_Class30052] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20023])
+	(price 48)
+	(star 2))
+
+([IA_Lab2_Class30053] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20023])
+	(price 143)
+	(star 4))
+
+([IA_Lab2_Class30054] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20007])
+	(price 180)
+	(star 5))
+
+([IA_Lab2_Class30055] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20007])
+	(price 47)
+	(star 2))
+
+([IA_Lab2_Class30056] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20007])
+	(price 140)
+	(star 4))
+
+([IA_Lab2_Class30057] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20012])
+	(price 38)
+	(star 2))
+
+([IA_Lab2_Class30058] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20012])
+	(price 68)
+	(star 2))
+
+([IA_Lab2_Class30059] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20012])
+	(price 140)
+	(star 4))
+
+([IA_Lab2_Class30060] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20003])
+	(price 175)
+	(star 5))
+
+([IA_Lab2_Class30061] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20003])
+	(price 123)
+	(star 4))
+
+([IA_Lab2_Class30062] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20003])
+	(price 101)
+	(star 4))
+
+([IA_Lab2_Class30063] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20017])
+	(price 142)
+	(star 4))
+
+([IA_Lab2_Class30064] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20017])
+	(price 58)
+	(star 3))
+
+([IA_Lab2_Class30065] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20017])
+	(price 78)
+	(star 4))
+
+([IA_Lab2_Class30066] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20014])
+	(price 125)
+	(star 3))
+
+([IA_Lab2_Class30067] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20014])
+	(price 121)
+	(star 3))
+
+([IA_Lab2_Class30068] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20014])
+	(price 39)
+	(star 2))
+
+([IA_Lab2_Class30069] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20006])
+	(price 180)
+	(star 5))
+
+([IA_Lab2_Class30070] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20006])
+	(price 120)
+	(star 3))
+
+([IA_Lab2_Class30071] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20015])
+	(price 74)
+	(star 3))
+
+([IA_Lab2_Class30072] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20015])
+	(price 96)
+	(star 3))
+
+([IA_Lab2_Class30073] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20015])
+	(price 75)
+	(star 3))
+
+([IA_Lab2_Class30074] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20013])
+	(price 41)
+	(star 2))
+
+([IA_Lab2_Class30075] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20013])
+	(price 99)
+	(star 3))
+
+([IA_Lab2_Class30076] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20005])
+	(price 175)
+	(star 5))
+
+([IA_Lab2_Class30077] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20005])
+	(price 151)
+	(star 4))
+
+([IA_Lab2_Class30078] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20005])
+	(price 63)
+	(star 3))
+
+([IA_Lab2_Class30079] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20025])
+	(price 48)
+	(star 3))
+
+([IA_Lab2_Class30080] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20025])
+	(price 87)
+	(star 3))
+
+([IA_Lab2_Class30081] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20032])
+	(price 89)
+	(star 3))
+
+([IA_Lab2_Class30082] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20032])
+	(price 125)
+	(star 3))
+
+([IA_Lab2_Class30083] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20032])
+	(price 37)
+	(star 2))
+
+([IA_Lab2_Class30084] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20031])
+	(price 48)
+	(star 2))
+
+([IA_Lab2_Class30085] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20031])
+	(price 142)
+	(star 4))
+
+([IA_Lab2_Class30086] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20031])
+	(price 114)
+	(star 4))
+
+([IA_Lab2_Class30087] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20016])
+	(price 114)
+	(star 3))
+
+([IA_Lab2_Class30088] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20016])
+	(price 142)
+	(star 3))
+
+([IA_Lab2_Class30089] of  Alojamiento
+
+	(esta_en [IA_Lab2_Class20016])
+	(price 59)
+	(star 3))
 
 )

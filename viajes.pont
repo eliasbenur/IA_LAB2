@@ -1,4 +1,4 @@
-; Tue May 22 14:22:51 CEST 2018
+; Tue May 22 22:11:06 CEST 2018
 ; 
 ;+ (version "3.5")
 ;+ (build "Build 663")
@@ -26,6 +26,11 @@
 	(single-slot Data_inicio
 ;+		(comment "Data inicio del viaje\nej: 04-11-1994")
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot price
+;+		(comment "Precio por dia")
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot num_max_dias
@@ -62,6 +67,11 @@
 		(type STRING)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot esta_en
+		(type INSTANCE)
+;+		(allowed-classes Ciudad)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot Presupuesto_max
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -95,6 +105,10 @@
 		(create-accessor read-write))
 	(single-slot cultura
 		(type STRING)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot star
+		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(single-slot latitud
@@ -241,7 +255,21 @@
 
 (defclass Alojamiento
 	(is-a USER)
-	(role concrete))
+	(role concrete)
+	(single-slot star
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot price
+;+		(comment "Precio por dia")
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
+	(single-slot esta_en
+		(type INSTANCE)
+;+		(allowed-classes Ciudad)
+;+		(cardinality 0 1)
+		(create-accessor read-write)))
 
 (defclass Sitios_Interesantes
 	(is-a USER)

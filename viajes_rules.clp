@@ -100,6 +100,7 @@
 ;%%%%%
 
 (defrule filt-trans "Filtro de Ciudades x Transportes"
+   (declare (salience -6))
    (viaje filtrar)
    (viaje transportes ?trans)
    =>
@@ -110,12 +111,30 @@
 )
 
 (defrule filt-alojamiento "Filtro de Alojoamientos x Calidad del Alojamiento"
+   (declare (salience -7))
    (viaje filtrar)
+   (viaje hospedaje ?star)
    (viaje ciudad ?ciudad)
-   (> ?star 0)
    =>
-   (bind ?hospedajes (find-all-instances ((?ins Alojamiento)) (>= ?star ?ins:stars)))
-   (loop-for-count (?j 1 (length$ (send ?ciudad get-dispone_de)) do
-      (assert (viaje hospedaje (nth$ ?j ?ciudades)))
+   (bind ?lista (create$))
+   (loop-for-count (?j 1 (length$ (send ?ciudad get-dispone_de))) do
+      (if (>= (send (nth$ ?j (send ?ciudad get-dispone_de)) get-star) ?star) then
+         (bind ?lista (insert$ ?lista 1 (nth$ ?j (send ?ciudad get-dispone_de))))
+      )
    )
+   (send ?ciudad put-dispone_de ?lista)
+   (assert (viaje filtrar-alo-ciu))
 )
+
+(defrule filt-alojamiento-pos "Filtro de Ciudades - Post eliminacion de Alojamientos"
+   (declare (salience -8))
+   (viaje filtrar)
+   (viaje filtrar-alo-ciu)
+   ?obs <- (viaje ciudad ?ciudad)
+   =>
+   (if (= (length$ (send ?ciudad get-dispone_de)) 0) then
+      (retract ?obs)
+   )
+   (printout t ":X" (length$ (send ?ciudad get-dispone_de)) crlf)
+)
+
