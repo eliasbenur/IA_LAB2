@@ -11,3 +11,15 @@
    )
    FALSE
 )
+
+;TEMPLATES
+
+(deftemplate viaje1 
+   (multislot ciudades)
+   (multislot dias)
+)
+
+(deftemplate viaje2
+   (multislot ciudades)
+   (multislot dias)
+)
