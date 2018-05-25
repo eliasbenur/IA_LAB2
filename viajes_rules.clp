@@ -61,6 +61,7 @@
    (bind $?trans (explode$ ?res))
    (loop-for-count (?i 1 (length$ $?trans)) do
       (assert (viaje transportes (nth$ ?i $?trans)))
+      (bind ?*list-trans* (insert$ ?*list-trans* (+ (length$ ?*list-trans*) 1) (nth$ ?i $?trans)))
    )
 )
 
@@ -70,17 +71,17 @@
    (printout t "How much money do you plan to spend more or less?" crlf)
    (bind ?days (read))
    (if (> ?days 0) then
-      (if (<= ?days 500) then
+      (if (<= ?days 600) then
          (assert (viaje precio barato))
+         (bind ?*tip-precio* barato)
       )
-      (if (and (> ?days 500) (<= ?days 1000)) then
+      (if (and (> ?days 600) (<= ?days 1200)) then
          (assert (viaje precio normal))
+         (bind ?*tip-precio* normal)
       )
-      (if (and (> ?days 1000) (<= ?days 1500)) then
+      (if (> ?days 1200) then
          (assert (viaje precio caro))
-      )
-      (if (> ?days 1500) then
-         (assert (viaje precio muy-caro))
+         (bind ?*tip-precio* caro)
       )
    )
 )
@@ -127,6 +128,8 @@
    )
    (send ?ciudad put-dispone_de ?lista)
    (assert (viaje filtrar-alo-ciu))
+   (bind ?lista-vacia (create$))
+   (assert (lista-ciudades (ciudades ?lista-vacia)))
 )
 
 (defrule filt-alojamiento-pos "Filtro de Ciudades - Post eliminacion de Alojamientos"
@@ -137,6 +140,9 @@
    =>
    (if (= (length$ (send ?ciudad get-dispone_de)) 0) then
       (retract ?obs)
+   )
+   (if (> (length$ (send ?ciudad get-dispone_de)) 0) then
+      (bind ?*list-ciudades* (insert$ ?*list-ciudades* 1 ?ciudad))
    )
 )
 
@@ -285,6 +291,159 @@
 ;Generacion de propuestas de viajes iniciales
 
 
+(deffunction beta-gen-viajes-3 ()
+   (bind ?viajex (create$))
+   (loop-for-count (?j 1 3) do
+      (loop-for-count (?x 1 (length$ ?*list-ciudades*)) do
+         (bind ?viajex (insert$ ?viajex 1 (nth$ ?x ?*list-ciudades*)))
+         (loop-for-count (?y ?x (length$ ?*list-ciudades*)) do
+            (if (neq (nth$ ?y ?*list-ciudades*) (nth$ ?x ?*list-ciudades*)) then
+               (bind ?viajex (insert$ ?viajex 2 (nth$ ?y ?*list-ciudades*)))
+               (loop-for-count (?z ?y (length$ ?*list-ciudades*)) do
+                  (if (and (neq (nth$ ?z ?*list-ciudades*) (nth$ ?x ?*list-ciudades*)) (neq (nth$ ?z ?*list-ciudades*) (nth$ ?y ?*list-ciudades*))) then
+                     (bind ?viajex (insert$ ?viajex 3 (nth$ ?z ?*list-ciudades*)))
+                     (make-instance of Viaje (incluye ?viajex))
+                     (bind ?viajex (delete$ ?viajex 3 3))
+                  )
+               )
+               (bind ?viajex (delete$ ?viajex 2 2))
+            )
+         )
+         (bind ?viajex (delete$ ?viajex 1 1))
+      )
+   )
+   TRUE
+)
+
+(deffunction gen-viajes-3 ()
+   (bind ?viajex (create$))
+   (loop-for-count (?j 1 3) do
+      (bind ?length-ciudades (length$ ?*list-ciudades*))
+      (loop-for-count (?x 1 ?length-ciudades) do
+         (bind ?viajex (insert$ ?viajex 1 (nth$ ?x ?*list-ciudades*)))
+         (loop-for-count (?y ?x ?length-ciudades) do
+            ;(if (neq (nth$ ?y ?*list-ciudades*) (nth$ ?x ?*list-ciudades*)) then
+            (if (not (collection-contains-a-element (nth$ ?y ?*list-ciudades*) ?viajex)) then
+               (bind ?viajex (insert$ ?viajex 2 (nth$ ?y ?*list-ciudades*)))
+               (loop-for-count (?z ?y ?length-ciudades) do
+                  ;(if (and (neq (nth$ ?z ?*list-ciudades*) (nth$ ?x ?*list-ciudades*)) (neq (nth$ ?z ?*list-ciudades*) (nth$ ?y ?*list-ciudades*))) then
+                  (if (not (collection-contains-a-element (nth$ ?z ?*list-ciudades*) ?viajex)) then
+                     (bind ?viajex (insert$ ?viajex 3 (nth$ ?z ?*list-ciudades*)))
+                     (make-instance of Viaje (incluye ?viajex))
+                     (bind ?viajex (delete$ ?viajex 3 3))
+                  )
+               )
+               (bind ?viajex (delete$ ?viajex 2 2))
+            )
+         )
+         (bind ?viajex (delete$ ?viajex 1 1))
+      )
+   )
+   TRUE
+)
+
+
+
+(defrule  gen-pos-viajes "Generar los posibles viajes"
+   (declare (salience -10))
+   (viaje2 (ciudades) (dias $?ciudades))
+   =>
+   (if (= (length$ ?ciudades) 3) then
+      (gen-viajes-3)
+   )
+)
+
+(defrule gen-precios "Calcular los precios de los viajes"
+   (declare (salience -11))
+   =>
+   (bind ?viajes (find-all-instances ((?ins Viaje)) TRUE))
+   (loop-for-count (?j 1 (length$ ?viajes)) do
+      (bind ?ciudades (send (nth$ ?j ?viajes) get-incluye))
+      (loop-for-count (?z 1 (length$ ?ciudades)) do
+         (bind ?ciudad (nth$ ?z ?ciudades))
+         (loop-for-count (?y 1 (length$ ?*list-trans*)) do
+            (if (and (eq (nth$ ?y ?*list-trans*) Plane) (collection-contains-a-element Plane (send ?ciudad get-transporte)) (= ?*precio-trans* 0)) then 
+               (bind ?*precio-trans* 0.00003)
+            )
+            (if (and (eq (nth$ ?y ?*list-trans*) Car) (collection-contains-a-element Car (send ?ciudad get-transporte)) (= ?*precio-trans* 0)) then 
+               (bind ?*precio-trans* 0.00007)
+            )
+            (if (and (eq (nth$ ?y ?*list-trans*) Ship) (collection-contains-a-element Ship (send ?ciudad get-transporte)) (= ?*precio-trans* 0)) then 
+               (bind ?*precio-trans* 0.00012)
+            )
+            (if (and (eq (nth$ ?y ?*list-trans*) Train) (collection-contains-a-element Train (send ?ciudad get-transporte)) (= ?*precio-trans* 0)) then 
+               (bind ?*precio-trans* 0.00006)
+            )
+         )
+         (if (= ?z 1) then
+            (bind ?precio-trans-ciudad (cal-precio-trans ?*precio-trans* (send ?ciudad get-latitud) (send ?ciudad get-longitud) ?*lat-ori* ?*long-ori*))
+         )
+         (if (= ?z (length$ ?ciudades)) then
+            (bind ?precio-trans-ciudad (+ 
+                           (cal-precio-trans ?*precio-trans* (send ?ciudad get-latitud) (send ?ciudad get-longitud) ?*lat-ori* ?*long-ori*)
+                           (cal-precio-trans ?*precio-trans* (send (nth$ (- ?z 1) ?ciudades) get-latitud) (send (nth$ (- ?z 1) ?ciudades) get-longitud) (send ?ciudad get-latitud) (send ?ciudad get-longitud))
+                        )
+            )
+                           
+         )
+         (if (and (> ?z 1) (< ?z (length$ ?ciudades))) then
+            (bind ?precio-trans-ciudad (cal-precio-trans ?*precio-trans* (send (nth$ (- ?z 1) ?ciudades) get-latitud) (send (nth$ (- ?z 1) ?ciudades) get-longitud) (send ?ciudad get-latitud) (send ?ciudad get-longitud)))
+         )
+         (send (nth$ ?j ?viajes) put-precio (+ (send (nth$ ?j ?viajes) get-precio) ?precio-trans-ciudad))
+         (bind ?*precio-trans* 0)
+      )
+   )
+)
+
+(defrule gen-precios-aloj "Calcular los precios de los viajes"
+   (declare (salience -12))
+   (viaje2 (ciudades) (dias $?dias-ciudad))
+   =>
+   (bind ?viajes (find-all-instances ((?ins Viaje)) TRUE))
+   (loop-for-count (?j 1 (length$ ?viajes)) do
+      (bind ?ciudades (send (nth$ ?j ?viajes) get-incluye))
+      (loop-for-count (?z 1 (length$ ?ciudades)) do
+         (bind ?ciudad (nth$ ?z ?ciudades))
+         (bind ?alojamiento-select (nth$ 1 (send ?ciudad get-dispone_de)))
+         (bind ?precio-select (+ (send (nth$ ?j ?viajes) get-precio) (* (nth$ ?z ?dias-ciudad) (send ?alojamiento-select get-price))))
+         (if (>= (length$ (send ?ciudad get-dispone_de)) 2) then
+            (loop-for-count (?y 2 (length$ (send ?ciudad get-dispone_de))) do
+               (bind ?alojamiento (nth$ ?y (send ?ciudad get-dispone_de)))
+               (if (and (or (eq ?*tip-precio* barato) (eq ?*tip-precio* normal))
+                  (> ?precio-select (+ (send (nth$ ?j ?viajes) get-precio) (* (nth$ ?z ?dias-ciudad) (send ?alojamiento get-price))))  
+                  ) then
+                  (bind ?alojamiento-select (nth$ ?y (send ?ciudad get-dispone_de)))
+                  (bind ?precio-select (+ (send (nth$ ?j ?viajes) get-precio) (* (nth$ ?z ?dias-ciudad) (send ?alojamiento get-price))))
+               )
+               (if (and (eq ?*tip-precio* caro) 
+                  (< ?precio-select (+ (send (nth$ ?j ?viajes) get-precio) (* (nth$ ?z ?dias-ciudad) (send ?alojamiento get-price))))  
+                  ) then
+                  (bind ?alojamiento-select (nth$ ?y (send ?ciudad get-dispone_de)))
+                  (bind ?precio-select (+ (send (nth$ ?j ?viajes) get-precio) (* (nth$ ?z ?dias-ciudad) (send ?alojamiento get-price))))
+               )
+            )
+         )
+         (send (nth$ ?j ?viajes) put-precio (+ (send (nth$ ?j ?viajes) get-precio) ?precio-select))
+      )
+   )
+)
+
+(defrule select-viaje "Seleccionamos un Viaje"
+   (declare (salience -13))
+   =>
+   (bind ?viajes (find-all-instances ((?ins Viaje)) TRUE))
+   (bind ?viaje-definitivo (nth$ 1 ?viajes))
+   (bind ?dif (abs (- (send ?viaje-definitivo get-precio) 1200)))
+   (if (> (length$ ?viajes) 2) then
+      (loop-for-count (?j 2 (length$ ?viajes)) do
+         (if (< (abs (- (send (nth$ ?j ?viajes) get-precio) 1200)) ?dif) then
+            (bind ?viaje-definitivo (nth$ ?j ?viajes))
+            (bind ?dif (abs (- (send (nth$ ?j ?viajes) get-precio) 1200)))
+         )
+      )
+   )
+   (printout t ?viaje-definitivo "//" ?dif crlf)
+)
 
 
 

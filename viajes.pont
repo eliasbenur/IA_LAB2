@@ -181,6 +181,10 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot precio
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot num_max_dias
 		(type INTEGER)
 ;+		(cardinality 0 1)
