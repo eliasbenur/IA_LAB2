@@ -9,7 +9,8 @@
 (defrule days-ask "How many days do you have want to spend?"
    (declare (salience -1))
    =>
-   (bind ?days (pregunta-num "How many days do you want to spend?" 0 365))
+   (printout t "How many days do you have want to spend in the travel?" crlf)
+   (bind ?days (read))
    (if (>= ?days 0) then
       (if (<= ?days 3) then
          (assert (viaje dias corto))

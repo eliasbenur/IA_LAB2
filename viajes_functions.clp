@@ -48,44 +48,4 @@
         (* ?precio (* 2 6371000 (asin(sqrt (+ (** (sin (/ ?xlat 2)) 2) (* (cos ?lat1) (cos ?lat2) (** (sin (/ ?ylong 2)) 2)))))))
 )
 
-(deffunction pregunta-num (?pregunta ?min ?max)
-   (format t "%s (From %d to %d) " ?pregunta ?min ?max)
-   (bind ?res (read))
-   (while (not(and(>= ?res ?min)(<= ?res ?max))) do
-      (format t "%s (From %d to %d) " ?pregunta ?min ?max)
-      (bind ?res (read))
-   )
-   ?res
-)
-
-(deffunction pregunta-valores (?pregunta $?valores-permitidos)
-  (progn$
-    (?var ?valores-permitidos)
-    (lowcase ?var))
-  (format t "%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
-  (bind ?respuesta (read))
-  (while (not (member (lowcase ?respuesta) ?valores-permitidos)) do
-    (format t "%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
-    (bind ?respuesta (read))
-  )
-  ?respuesta
-)
-
-(deffunction pregunta-index (?pregunta $?valores-permitidos)
-  (progn$
-    (?var ?valores-permitidos))
-  (format t "%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
-  (bind ?respuesta (read))
-  (while (not (member ?respuesta ?valores-permitidos)) do
-    (format t "%s? (%s) " ?pregunta (implode$ ?valores-permitidos))
-    (bind ?respuesta (read))
-  )
-  ?respuesta
-)
-
-
-(defglobal
-  ?*TRANSPORT_TYPES* = (create$ plane train car ship any)
-  ?*ACCOMMODATION_TYPES* = (create$ 1 2 3 4 5)
-)
 
