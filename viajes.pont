@@ -181,6 +181,10 @@
 		(type INTEGER)
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
+	(single-slot tipo
+		(type INTEGER)
+;+		(cardinality 0 1)
+		(create-accessor read-write))
 	(single-slot precio
 		(type INTEGER)
 ;+		(cardinality 0 1)
@@ -194,6 +198,14 @@
 ;+		(cardinality 0 1)
 		(create-accessor read-write))
 	(multislot restricciones_transporte
+		(type SYMBOL)
+		(allowed-values Tren Avion Autobus Coche Barco)
+		(create-accessor read-write))
+	(multislot alojamientos_utilizados
+		(type SYMBOL)
+		(allowed-values Tren Avion Autobus Coche Barco)
+		(create-accessor read-write))
+	(multislot transportes_utilizados
 		(type SYMBOL)
 		(allowed-values Tren Avion Autobus Coche Barco)
 		(create-accessor read-write))
