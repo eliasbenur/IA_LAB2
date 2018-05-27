@@ -9,8 +9,7 @@
 (defrule days-ask "How many days do you have want to spend?"
    (declare (salience -1))
    =>
-   (printout t "How many days do you have want to spend in the travel?" crlf)
-   (bind ?days (read))
+   (bind ?days (pregunta-int "How many days do you want to spend in the travel?" 0 365))
    (if (>= ?days 0) then
       (if (<= ?days 3) then
          (assert (viaje dias corto))
@@ -34,8 +33,7 @@
 (defrule min-ciudades "How many cities do you want to visit at least?"
    (declare (salience -2))
    =>
-   (printout t "How many cities do you want to visit at least?{0 for null Value}" crlf)
-   (bind ?days (read))
+   (bind ?days (pregunta-int "How many cities do you want to visit at least?{0 for null Value}" 0 100))
    (if (> ?days 0) then
       (if (<= ?days 2) then
          (assert (viaje min-ciudades pocas))
@@ -55,10 +53,7 @@
 (defrule transportes "What type of transport do you want to use? "
    (declare (salience -3))
    =>
-   (printout t "What type of transport do you want to use? " crlf)
-   (printout t "{0 for null Value, Plane, Train, Car, Ship}" crlf)
-   (bind $?res (readline))
-   (bind $?trans (explode$ ?res))
+   (bind $?trans (pregunta-multivalor "What type of transport do you want to use?(In order of priority >>)" ?*TRANSPORT_TYPES*))
    (loop-for-count (?i 1 (length$ $?trans)) do
       (assert (viaje transportes (nth$ ?i $?trans)))
       (bind ?*list-trans* (insert$ ?*list-trans* (+ (length$ ?*list-trans*) 1) (nth$ ?i $?trans)))
@@ -68,8 +63,7 @@
 (defrule precio "How much money do you plan to spend more or less?"
    (declare (salience -4))
    =>
-   (printout t "How much money do you plan to spend more or less?" crlf)
-   (bind ?price (read))
+   (bind ?price (pregunta-num "How much money do you plan to spend more or less?" 0 20000))
    (bind ?*precio-cliente* ?price)
    (if (> ?price 0) then
       (if (<= ?price 600) then
@@ -90,12 +84,13 @@
 (defrule hospedaje "Do you want a minimum level of accommodation? "
    (declare (salience -5))
    =>
-   (printout t "Do you want a minimum level of accommodation?{1,2,3,4,5 starts}" crlf)
-   (bind ?hosp (read))
+   (bind ?hosp (pregunta-int "Do you want a minimum level of accommodation?{1,2,3,4,5 starts}" 1 5))
    (if (and (> ?hosp 0) (<= ?hosp 5)) then
       (assert (viaje hospedaje ?hosp))
    )
    (assert (viaje filtrar))
+   (printout t "Looking for the best results.... " crlf)
+   (printout t "This may take a few minutes depending on your query.... " crlf)
 )
 
 ;%%%%%

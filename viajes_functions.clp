@@ -21,6 +21,11 @@
 (defglobal ?*long-ori* = 2.150364)
 (defglobal ?*tip-precio* = none)
 (defglobal ?*precio-cliente* = 0)
+(defglobal
+  ?*TRANSPORT_TYPES* = (create$ Plane Train Car Ship)
+  ?*ACCOMMODATION_TYPES* = (create$ 1 2 3 4 5)
+)
+
 
 ;TEMPLATES
 
@@ -46,6 +51,63 @@
         (bind ?xlat (- ?lat2 ?lat1))
         (bind ?ylong (- ?long2 ?long1))
         (* ?precio (* 2 6371000 (asin(sqrt (+ (** (sin (/ ?xlat 2)) 2) (* (cos ?lat1) (cos ?lat2) (** (sin (/ ?ylong 2)) 2)))))))
+)
+
+;Restricciones en entrada de valores
+
+(deffunction es-num (?var)
+  (bind ?ret (or (eq (type ?var) INTEGER) (eq (type ?var) FLOAT)))
+  ?ret
+)
+
+(deffunction pregunta-num (?pregunta ?min ?max)
+   (format t "%s (From %d to %d) " ?pregunta ?min ?max)
+   (bind ?res (read))
+   (while (not(and (es-num ?res) (>= ?res ?min)(<= ?res ?max))) do
+      (format t "%s (From %d to %d) " ?pregunta ?min ?max)
+      (bind ?res (read))
+   )
+   ?res
+)
+
+(deffunction pregunta-int (?pregunta ?min ?max)
+   (format t "%s (From %d to %d) " ?pregunta ?min ?max)
+   (bind ?res (read))
+   (while (not(and (eq (type ?res) INTEGER) (>= ?res ?min)(<= ?res ?max))) do
+      (format t "%s (From %d to %d) " ?pregunta ?min ?max)
+      (bind ?res (read))
+   )
+   ?res
+)
+
+(deffunction pregunta-multivalor (?question ?allowed-values)
+  (format t "%s? (%s) " ?question (implode$ ?allowed-values))
+  (bind ?line (readline))
+  (bind $?answer (explode$ ?line))
+  (bind ?valid FALSE)
+  (while (not ?valid) do
+    (loop-for-count (?i 1 (length$ $?answer)) do
+      (bind ?valid FALSE)
+      (bind ?value-belongs FALSE)
+      (loop-for-count (?j 1 (length$ $?allowed-values)) do
+        (if (eq (nth$ ?i $?answer) (nth$ ?j $?allowed-values)) then
+          (bind ?value-belongs TRUE)
+          (break)
+        )
+      )
+      (if (not ?value-belongs) then
+        (printout t "| > " (nth$ ?i $?answer) " is not a valid option" crlf)
+        (break)
+      )
+      (bind ?valid TRUE)
+    )
+    (if ?valid then (break))
+
+    (printout t "| > " ?question crlf "| ")
+    (bind ?line (readline))
+    (bind $?answer (explode$ ?line))
+  )
+  $?answer
 )
 
 
